@@ -1,63 +1,161 @@
-import Image from "next/image";
+import Link from "next/link";
+import Card, { CardContent, CardHeader } from "@/components/ui/card";
+import Button from "@/components/ui/button";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+    <div className="flex min-h-screen justify-center">
+      <main className="w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-16">
+        {/* Hero */}
+        <section className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
+              Portfolio
+            </p>
+            <h1 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl">
+              Ennio Vögeli
+            </h1>
+            <p className="mt-3 max-w-xl text-zinc-600 dark:text-zinc-400">
+              17-jähriger Schüler der Informatik Mittelschule an der
+              Kantonsschule Hottingen – mit grosser Begeisterung für
+              Softwareentwicklung, sauberen Code und das Lösen realer Probleme.
+            </p>
+          </div>
+          <div className="flex gap-3">
+            <Link href="#projekte">
+              <Button variant="primary" size="md">
+                Projekte ansehen
+              </Button>
+            </Link>
+            <Link href="#ueber-mich">
+              <Button variant="secondary" size="md">
+                Über mich
+              </Button>
+            </Link>
+          </div>
+        </section>
+
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)]">
+          {/* Über mich + Projekte */}
+          <div className="space-y-8">
+            {/* Über mich */}
+            <section id="ueber-mich">
+              <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
+                <span className="inline-block w-1 h-6 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
+                Über mich
+              </h2>
+              <p className="mt-3 text-zinc-700 dark:text-zinc-300">
+                Mein Name ist Ennio Vögeli, ich bin 17 Jahre alt und befinde
+                mich derzeit in der Informatik Mittelschule, also der Ausbildung
+                zum Applikationsentwickler an der Kantonsschule Hottingen. Schon
+                seit längerer Zeit habe ich ein starkes Interesse an der
+                Informatik und insbesondere an der Softwareentwicklung. Dieses
+                Interesse wurde auch durch mein familiäres Umfeld geprägt, da
+                mein Vater ebenfalls in der Informatik tätig ist.
+              </p>
+              <p className="mt-3 text-zinc-700 dark:text-zinc-300">
+                Ich bin eine zuverlässige und interessierte Person, die gerne
+                selbstständig arbeitet, aber ebenso Freude an der Zusammenarbeit
+                im Team hat. Besonders motiviert mich das Arbeiten an Projekten,
+                bei denen ich neue Technologien einsetzen und Probleme
+                eigenständig lösen kann.
+              </p>
+            </section>
+
+            {/* Projekte (Preview) */}
+            <section id="projekte" className="pt-2">
+              <div className="mb-4 flex items-center justify-between gap-3">
+                <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
+                  <span className="inline-block w-1 h-6 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
+                  Projekte
+                </h2>
+                <Link
+                  href="/Projects"
+                  className="text-sm font-medium text-violet-900 underline-offset-4 hover:text-violet-800 hover:underline dark:text-violet-400 dark:hover:text-violet-300 transition-colors"
+                >
+                  Alle Projekte
+                </Link>
+              </div>
+
+              <Card>
+                <CardHeader>
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                      IMS Grades – Notenrechnungs- und Anzeige-Webseite
+                    </h3>
+                    <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                      Webapplikation zur Berechnung und übersichtlichen Anzeige
+                      von Schulnoten.
+                    </p>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                    Dieses Projekt habe ich gemeinsam mit zwei Kameraden im
+                    Rahmen eines Hackathons entwickelt. Ziel war es, eine
+                    Webapplikation zu erstellen, mit der Schulnoten berechnet
+                    und übersichtlich dargestellt werden können.
+                  </p>
+                  <p className="mt-3 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                    Meine Lernerfahrungen:
+                  </p>
+                  <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
+                    <li>Effektive Kommunikation im Team</li>
+                    <li>Planung und Umsetzung einer vollständigen Webapplikation</li>
+                    <li>Zusammenarbeit unter Zeitdruck</li>
+                    <li>
+                      Anwendung meiner technischen Kenntnisse in einem
+                      praxisnahen Projekt
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </section>
+          </div>
+
+          {/* Skills / Meta */}
+          <aside className="space-y-6">
+            <section>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-900 dark:text-violet-400">
+                Fähigkeiten &amp; Kompetenzen
+              </h2>
+              <div className="mt-4 space-y-4 rounded-xl border border-violet-300 bg-gradient-to-br from-white to-violet-50 p-5 text-sm shadow-sm dark:border-violet-800 dark:bg-gradient-to-br dark:from-violet-950/40 dark:to-violet-900/20">
+                <div>
+                  <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
+                    Programmiersprachen
+                  </h3>
+                  <p className="mt-1 text-zinc-700 dark:text-zinc-300">
+                    Python, JavaScript
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
+                    Webentwicklung
+                  </h3>
+                  <p className="mt-1 text-zinc-700 dark:text-zinc-300">
+                    HTML, CSS
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
+                    Datenbanken
+                  </h3>
+                  <p className="mt-1 text-zinc-700 dark:text-zinc-300">
+                    MySQL, MongoDB
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
+                    Stärken
+                  </h3>
+                  <p className="mt-1 text-zinc-700 dark:text-zinc-300">
+                    Teamfähigkeit, Hartnäckigkeit bei der Problemlösung,
+                    Bereitschaft zur kontinuierlichen Weiterentwicklung.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </aside>
         </div>
       </main>
     </div>
