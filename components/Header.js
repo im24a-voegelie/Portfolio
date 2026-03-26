@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 export default function Header() {
   const pathname = usePathname();
@@ -19,7 +20,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-violet-900/30 bg-zinc-50/80 backdrop-blur-sm dark:border-violet-800/50 dark:bg-black/80">
+    <motion.header
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="sticky top-0 z-50 border-b border-violet-900/30 bg-zinc-50/80 backdrop-blur-sm dark:border-violet-800/50 dark:bg-black/80"
+    >
       <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4 sm:px-10">
         <Link
           href="/"
@@ -29,21 +35,27 @@ export default function Header() {
         </Link>
 
         <div className="flex gap-1 sm:gap-2">
-          {navLinks.map((link) => (
-            <Link
+          {navLinks.map((link, idx) => (
+            <motion.div
               key={link.href}
-              href={link.href}
-              className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
-                isActive(link.href)
-                  ? "bg-violet-200 text-violet-900 dark:bg-violet-900 dark:text-violet-100"
-                  : "text-zinc-600 hover:text-violet-700 dark:text-zinc-400 dark:hover:text-violet-400"
-              }`}
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: idx * 0.1 + 0.1, duration: 0.3 }}
             >
-              {link.label}
-            </Link>
+              <Link
+                href={link.href}
+                className={`px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                  isActive(link.href)
+                    ? "bg-violet-200 text-violet-900 dark:bg-violet-900 dark:text-violet-100"
+                    : "text-zinc-600 hover:text-violet-700 dark:text-zinc-400 dark:hover:text-violet-400"
+                }`}
+              >
+                {link.label}
+              </Link>
+            </motion.div>
           ))}
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }

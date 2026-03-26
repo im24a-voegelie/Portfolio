@@ -1,70 +1,125 @@
+'use client';
+
+import Link from 'next/link';
 import Card, { CardContent, CardHeader } from "@/components/ui/card";
+import Badge from "@/components/ui/badge";
+import Button from "@/components/ui/button";
 import { projects } from "@/data/projects";
+import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
+import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 export default function ProjectsPage() {
   return (
     <div className="flex min-h-screen justify-center">
       <main className="w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-16">
-        <header className="mb-10">
-          <h1 className="text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center gap-3">
-            <span className="inline-block w-1.5 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-            Projekte
-          </h1>
-          <p className="mt-3 max-w-2xl text-zinc-600 dark:text-zinc-400">
-            Eine Auswahl meiner bisherigen Arbeiten mit Fokus auf Webentwicklung
-            und praxisnahe Softwareprojekte.
-          </p>
-        </header>
+        {/* Header */}
+        <ScrollFadeIn direction="down" duration={0.8} className="mb-12">
+          <header>
+            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
+              Projekte
+            </h1>
+            <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400 text-lg">
+              Eine Auswahl meiner bisherigen Arbeiten mit Fokus auf Webentwicklung
+              und praxisnahe Softwareprojekte. Klicke auf ein Projekt um mehr zu erfahren.
+            </p>
+          </header>
+        </ScrollFadeIn>
 
-        <div className="grid gap-6 md:grid-cols-1">
-          {projects.map((project) => (
-            <Card key={project.id}>
-              <CardHeader>
-                <div className="flex flex-col gap-1">
-                  <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                    {project.title}
-                  </h2>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                    <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>
-                    {project.type} · {project.description}
-                  </p>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                  {project.fullDescription}
+        {/* Projects Grid */}
+        <StaggerContainer delay={0.2}>
+          <div className="grid gap-6 md:grid-cols-1">
+            {projects.length > 0 ? (
+              projects.map((project, idx) => (
+                <StaggerChild key={project.id}>
+                  <AnimatedCard delay={idx * 0.1}>
+                    <Link href={`/Projects/${project.id}`}>
+                      <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300">
+                        <CardHeader>
+                          <div className="flex flex-col gap-3">
+                            <div className="flex items-start justify-between">
+                              <div className="flex-1">
+                                <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                  {project.title}
+                                </h2>
+                                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                                  <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>
+                                  {project.type}
+                                </p>
+                              </div>
+                              <span className="text-2xl">→</span>
+                            </div>
+                            <p className="text-sm text-zinc-600 dark:text-zinc-300">
+                              {project.description}
+                            </p>
+                          </div>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4">
+                            {project.fullDescription}
+                          </p>
+
+                          {/* Technologies */}
+                          {project.technologies && project.technologies.length > 0 && (
+                            <div className="mb-4">
+                              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+                                Technologien
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {project.technologies.map((tech, index) => (
+                                  <Badge key={index} variant="secondary">
+                                    {tech}
+                                  </Badge>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {/* Learnings */}
+                          <div>
+                            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
+                              Wichtige Lernerfahrungen
+                            </p>
+                            <ul className="list-disc space-y-1 pl-5 text-xs text-zinc-700 dark:text-zinc-300">
+                              {project.learnings.slice(0, 2).map((learning, index) => (
+                                <li key={index}>{learning}</li>
+                              ))}
+                              {project.learnings.length > 2 && (
+                                <li className="text-violet-600 dark:text-violet-400">
+                                  +{project.learnings.length - 2} weitere
+                                </li>
+                              )}
+                            </ul>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </Link>
+                  </AnimatedCard>
+                </StaggerChild>
+              ))
+            ) : (
+              <div className="text-center py-12">
+                <p className="text-zinc-600 dark:text-zinc-400 mb-4">
+                  Keine Projekte verfügbar. Bald mehrere hinzufügen!
                 </p>
-                <div className="mt-4">
-                  <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                    Meine Rolle &amp; Lernerfahrungen:
-                  </p>
-                  <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                    {project.learnings.map((learning, index) => (
-                      <li key={index}>{learning}</li>
-                    ))}
-                  </ul>
-                </div>
-                {project.technologies && project.technologies.length > 0 && (
-                  <div className="mt-4">
-                    <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                      Technologien:
-                    </p>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {project.technologies.map((tech, index) => (
-                        <span
-                          key={index}
-                          className="rounded-md bg-gradient-to-r from-violet-200 to-violet-100 px-2 py-1 text-xs text-violet-900 dark:from-violet-900 dark:to-violet-800 dark:text-violet-200"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+              </div>
+            )}
+          </div>
+        </StaggerContainer>
+
+        {/* CTA */}
+        <ScrollFadeIn delay={0.5} className="mt-16 pt-12 border-t border-zinc-200 dark:border-zinc-800">
+          <div className="text-center">
+            <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-3">
+              Möchte mehr über mich erfahren?
+            </h2>
+            <p className="text-zinc-600 dark:text-zinc-400 mb-6 max-w-md mx-auto">
+              Sieh dir mein Profil an, um mehr über meine Fähigkeiten und Leidenschaft für Softwareentwicklung zu erfahren.
+            </p>
+            <Link href="/about">
+              <Button variant="primary">Über mich</Button>
+            </Link>
+          </div>
+        </ScrollFadeIn>
       </main>
     </div>
   );
