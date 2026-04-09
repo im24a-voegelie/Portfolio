@@ -34,7 +34,7 @@ export default function Header() {
           EV
         </Link>
 
-        <div className="flex gap-1 sm:gap-2">
+        <div className="flex gap-1 sm:gap-4 items-center">
           {navLinks.map((link, idx) => (
             <motion.div
               key={link.href}
@@ -54,6 +54,31 @@ export default function Header() {
               </Link>
             </motion.div>
           ))}
+
+          <div className="hidden sm:flex gap-2 ml-4 pl-4 border-l border-violet-900/20 dark:border-violet-800/20">
+            <motion.a
+              href="mailto:ennio.voegeli@gmx.ch"
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.3 }}
+              className="px-3 py-2 text-sm font-medium text-zinc-600 hover:text-violet-700 dark:text-zinc-400 dark:hover:text-violet-400 transition-colors"
+              title="E-Mail senden"
+            >
+              Email
+            </motion.a>
+            <motion.a
+              href="https://github.com/im24a-voegelie"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: -5 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.3 }}
+              className="px-3 py-2 text-sm font-medium text-zinc-600 hover:text-violet-700 dark:text-zinc-400 dark:hover:text-violet-400 transition-colors"
+              title="GitHub Profil"
+            >
+              GitHub
+            </motion.a>
+          </div>
         </div>
       </nav>
     </motion.header>

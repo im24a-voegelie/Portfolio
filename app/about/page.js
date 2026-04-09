@@ -16,11 +16,11 @@ export default function AboutPage() {
     },
     {
       category: "Datenbanken",
-      items: ["MySQL", "MongoDB", "Firebase"],
+      items: ["MySQL", "MongoDB"],
     },
     {
       category: "Tools & Plattformen",
-      items: ["Git", "GitHub", "VS Code", "Linux", "Windows"],
+      items: ["Git", "GitHub", "VS Code", "Windows"],
     },
   ];
 
@@ -134,7 +134,7 @@ export default function AboutPage() {
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        🎯 Fokussiert & Zielorientiert
+                        Fokussiert & Zielorientiert
                       </h3>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">
                         Ich setze mir klare Ziele und arbeite systematisch daran, diese zu erreichen.
@@ -142,7 +142,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        🤝 Teamfähig
+                        Teamfähig
                       </h3>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">
                         Gute Kommunikation und Zusammenarbeit sind für erfolgreiche Projekte essentiell.
@@ -150,7 +150,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        💪 Hartnäckigkeit
+                        Hartnäckigkeit
                       </h3>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">
                         Bei Herausforderungen gebe ich nicht auf, sondern suche nach kreativen Lösungen.
@@ -158,7 +158,7 @@ export default function AboutPage() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        📚 Lernbereitschaft
+                        Lernbereitschaft
                       </h3>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">
                         Die Tech-Welt entwickelt sich schnell. Ich liebe es, Neues zu lernen.
@@ -208,6 +208,47 @@ export default function AboutPage() {
                   ))}
                 </StaggerContainer>
               </div>
+            </section>
+          </ScrollFadeIn>
+
+          {/* Contact */}
+          <ScrollFadeIn delay={0.6}>
+            <section>
+              <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
+                <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
+                Kontakt
+              </h2>
+              <Card>
+                <CardContent className="pt-6">
+                  <p className="text-zinc-700 dark:text-zinc-300 mb-6">
+                    Ich bin offen für Anfragen, Kooperationen und neue Möglichkeiten. Kontaktiere mich gerne über folgende Kanäle:
+                  </p>
+                  <div className="flex flex-col gap-3">
+                    <a
+                      href="mailto:ennio.voegeli@gmx.ch"
+                      className="inline-flex items-center gap-3 px-4 py-3 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                    >
+                      <span className="text-lg">✉️</span>
+                      <div>
+                        <p className="font-medium text-zinc-900 dark:text-zinc-50">E-Mail</p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">ennio.voegeli@gmx.ch</p>
+                      </div>
+                    </a>
+                    <a
+                      href="https://github.com/im24a-voegelie"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-3 px-4 py-3 bg-zinc-100 dark:bg-zinc-900 hover:bg-zinc-200 dark:hover:bg-zinc-800 rounded-lg transition-colors"
+                    >
+                      <span className="text-lg">GitHub</span>
+                      <div>
+                        <p className="font-medium text-zinc-900 dark:text-zinc-50">GitHub Profil</p>
+                        <p className="text-sm text-zinc-600 dark:text-zinc-400">@im24a-voegelie</p>
+                      </div>
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
             </section>
           </ScrollFadeIn>
         </div>

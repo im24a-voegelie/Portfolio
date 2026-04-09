@@ -44,12 +44,6 @@ export default function Home() {
                   </Button>
                 </Link>
               </div>
-              <button
-                onClick={() => setShowGame(true)}
-                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg transition-all hover:shadow-lg hover:shadow-amber-500/30"
-              >
-                🎮 Snake Spiel spielen
-              </button>
             </div>
           </section>
         </ScrollFadeIn>
@@ -57,32 +51,6 @@ export default function Home() {
         <div className="grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1.4fr)]">
           {/* Über mich + Projekte */}
           <div className="space-y-8">
-            {/* Über mich */}
-            <ScrollFadeIn delay={0.2} className="w-full">
-              <section id="ueber-mich">
-                <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
-                  <span className="inline-block w-1 h-6 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                  Über mich
-                </h2>
-                <p className="mt-3 text-zinc-700 dark:text-zinc-300">
-                  Mein Name ist Ennio Vögeli, ich bin 17 Jahre alt und befinde
-                  mich derzeit in der Informatik Mittelschule, also der Ausbildung
-                  zum Applikationsentwickler an der Kantonsschule Hottingen. Schon
-                  seit längerer Zeit habe ich ein starkes Interesse an der
-                  Informatik und insbesondere an der Softwareentwicklung. Dieses
-                  Interesse wurde auch durch mein familiäres Umfeld geprägt, da
-                  mein Vater ebenfalls in der Informatik tätig ist.
-                </p>
-                <p className="mt-3 text-zinc-700 dark:text-zinc-300">
-                  Ich bin eine zuverlässige und interessierte Person, die gerne
-                  selbstständig arbeitet, aber ebenso Freude an der Zusammenarbeit
-                  im Team hat. Besonders motiviert mich das Arbeiten an Projekten,
-                  bei denen ich neue Technologien einsetzen und Probleme
-                  eigenständig lösen kann.
-                </p>
-              </section>
-            </ScrollFadeIn>
-
             {/* Projekte (Preview) */}
             <ScrollFadeIn delay={0.3} className="w-full">
               <section id="projekte" className="pt-2">

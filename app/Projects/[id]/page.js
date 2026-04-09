@@ -6,22 +6,11 @@ import { ScrollFadeIn, StaggerContainer, StaggerChild } from '@/components/anima
 import Button from '@/components/ui/button';
 import Card, { CardContent, CardHeader } from '@/components/ui/card';
 import Badge from '@/components/ui/badge';
-import { useState, useEffect } from 'react';
 
 export default function ProjectPage({ params }) {
   const { id } = params;
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   const projectId = parseInt(id, 10);
   const project = projects.find((p) => p.id === projectId);
-
-  if (!mounted) {
-    return null;
-  }
 
   if (!project) {
     return (
@@ -156,7 +145,7 @@ export default function ProjectPage({ params }) {
                         rel="noopener noreferrer"
                         className="block px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg transition-colors text-center text-sm font-medium"
                       >
-                        📦 GitHub Repository
+                        GitHub Repository
                       </a>
                     ) : (
                       <div className="px-4 py-2 bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 rounded-lg text-center text-sm font-medium opacity-50">
@@ -170,7 +159,7 @@ export default function ProjectPage({ params }) {
                         rel="noopener noreferrer"
                         className="block px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors text-center text-sm font-medium"
                       >
-                        🚀 Live Demo
+                        Live Demo
                       </a>
                     ) : (
                       <div className="px-4 py-2 bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 rounded-lg text-center text-sm font-medium opacity-50">
