@@ -15,7 +15,7 @@ export default function ProjectsPage() {
         {/* Header */}
         <ScrollFadeIn direction="down" duration={0.8} className="mb-12">
           <header>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
+            <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
               Projekte
             </h1>
             <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400 text-lg">
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
                           <div className="flex flex-col gap-3">
                             <div className="flex items-start justify-between">
                               <div className="flex-1">
-                                <h2 className="text-xl font-semibold text-zinc-900 dark:text-zinc-50 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                                <h2 className="text-subsection text-zinc-900 dark:text-zinc-50 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
                                   {project.title}
                                 </h2>
                                 <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">

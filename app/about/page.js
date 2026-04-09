@@ -3,24 +3,43 @@
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import Card, { CardContent, CardHeader } from "@/components/ui/card";
+import SkillsCarousel from "@/components/SkillsCarousel";
 
 export default function AboutPage() {
   const skills = [
     {
       category: "Programmiersprachen",
-      items: ["Python", "JavaScript", "Java"],
+      items: [
+        { name: "Python" },
+        { name: "JavaScript" },
+        { name: "Java" },
+      ],
     },
     {
       category: "Webentwicklung",
-      items: ["HTML", "CSS", "React", "Next.js", "Tailwind CSS"],
+      items: [
+        { name: "HTML" },
+        { name: "CSS" },
+        { name: "React" },
+        { name: "Next.js" },
+        { name: "Tailwind CSS" },
+      ],
     },
     {
       category: "Datenbanken",
-      items: ["MySQL", "MongoDB"],
+      items: [
+        { name: "MySQL" },
+        { name: "MongoDB" },
+      ],
     },
     {
       category: "Tools & Plattformen",
-      items: ["Git", "GitHub", "VS Code", "Windows"],
+      items: [
+        { name: "Git" },
+        { name: "GitHub" },
+        { name: "VS Code" },
+        { name: "Windows" },
+      ],
     },
   ];
 
@@ -48,7 +67,7 @@ export default function AboutPage() {
         {/* Hero */}
         <ScrollFadeIn direction="down" duration={0.8}>
           <section className="mb-16">
-            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
+            <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
               Über mich
             </h1>
             <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-lg">
@@ -61,7 +80,7 @@ export default function AboutPage() {
           {/* Personal Story */}
           <ScrollFadeIn delay={0.1}>
             <section>
-              <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
+              <h2 className="text-section-md text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
                 Meine Geschichte
               </h2>
@@ -90,35 +109,7 @@ export default function AboutPage() {
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
                 Fähigkeiten & Kenntnisse
               </h2>
-              <StaggerContainer delay={0.3}>
-                <div className="grid gap-4 sm:grid-cols-2">
-                  {skills.map((skillGroup, idx) => (
-                    <StaggerChild key={idx}>
-                      <AnimatedCard delay={idx * 0.1}>
-                        <Card>
-                          <CardHeader>
-                            <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
-                              {skillGroup.category}
-                            </h3>
-                          </CardHeader>
-                          <CardContent>
-                            <div className="flex flex-wrap gap-2">
-                              {skillGroup.items.map((skill, skillIdx) => (
-                                <span
-                                  key={skillIdx}
-                                  className="px-3 py-1 bg-violet-100 dark:bg-violet-900/30 text-violet-900 dark:text-violet-300 rounded-full text-sm font-medium"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </AnimatedCard>
-                    </StaggerChild>
-                  ))}
-                </div>
-              </StaggerContainer>
+              <SkillsCarousel skills={skills} />
             </section>
           </ScrollFadeIn>
 

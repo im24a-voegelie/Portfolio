@@ -8,6 +8,7 @@ import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/anima
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { SnakeGame } from "@/components/games/SnakeGame";
 import Modal from "@/components/ui/modal";
+import SkillsWithIcons from "@/components/SkillsWithIcons";
 
 export default function Home() {
   const [showGame, setShowGame] = useState(false);
@@ -22,7 +23,7 @@ export default function Home() {
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
                 Portfolio
               </p>
-              <h1 className="mt-3 text-3xl font-semibold tracking-tight bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent sm:text-4xl">
+              <h1 className="mt-3 text-hero-lg bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
                 Ennio Vögeli
               </h1>
               <p className="mt-3 max-w-xl text-zinc-600 dark:text-zinc-400">
@@ -55,7 +56,7 @@ export default function Home() {
             <ScrollFadeIn delay={0.3} className="w-full">
               <section id="projekte" className="pt-2">
                 <div className="mb-4 flex items-center justify-between gap-3">
-                  <h2 className="text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
+                  <h2 className="text-section-lg text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
                     <span className="inline-block w-1 h-6 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
                     Projekte
                   </h2>
@@ -71,7 +72,7 @@ export default function Home() {
                   <Card>
                     <CardHeader>
                       <div className="flex flex-col gap-1">
-                        <h3 className="text-lg font-semibold text-zinc-900 dark:text-zinc-50">
+                        <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
                           IMS Grades – Notenrechnungs- und Anzeige-Webseite
                         </h3>
                         <p className="text-sm text-zinc-500 dark:text-zinc-400">
@@ -110,44 +111,10 @@ export default function Home() {
           <ScrollFadeIn delay={0.4} direction="right" className="w-full">
             <aside className="space-y-6">
               <section>
-                <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-violet-900 dark:text-violet-400">
+                <h2 className="text-section-md text-violet-900 dark:text-violet-400">
                   Fähigkeiten &amp; Kompetenzen
                 </h2>
-                <div className="mt-4 space-y-4 rounded-xl border border-violet-300 bg-gradient-to-br from-white to-violet-50 p-5 text-sm shadow-sm dark:border-violet-800 dark:bg-gradient-to-br dark:from-violet-950/40 dark:to-violet-900/20">
-                  <div>
-                    <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
-                      Programmiersprachen
-                    </h3>
-                    <p className="mt-1 text-zinc-700 dark:text-zinc-300">
-                      Python, JavaScript
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
-                      Webentwicklung
-                    </h3>
-                    <p className="mt-1 text-zinc-700 dark:text-zinc-300">
-                      HTML, CSS
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
-                      Datenbanken
-                    </h3>
-                    <p className="mt-1 text-zinc-700 dark:text-zinc-300">
-                      MySQL, MongoDB
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-zinc-900 dark:text-zinc-50">
-                      Stärken
-                    </h3>
-                    <p className="mt-1 text-zinc-700 dark:text-zinc-300">
-                      Teamfähigkeit, Hartnäckigkeit bei der Problemlösung,
-                      Bereitschaft zur kontinuierlichen Weiterentwicklung.
-                    </p>
-                  </div>
-                </div>
+                <SkillsWithIcons />
               </section>
             </aside>
           </ScrollFadeIn>

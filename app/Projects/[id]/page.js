@@ -16,7 +16,7 @@ export default function ProjectPage({ params }) {
     return (
       <div className="flex min-h-screen justify-center items-center">
         <main className="w-full max-w-4xl px-6 py-12 text-center">
-          <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-50 mb-4">
+          <h1 className="text-section-lg text-zinc-900 dark:text-zinc-50 mb-4">
             Projekt nicht gefunden
           </h1>
           <p className="text-zinc-600 dark:text-zinc-400 mb-6">
@@ -46,7 +46,7 @@ export default function ProjectPage({ params }) {
             <div className="mb-4">
               <Badge variant="primary">{project.type}</Badge>
             </div>
-            <h1 className="text-4xl sm:text-5xl font-bold tracking-tight bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent mb-4">
+            <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent mb-4">
               {project.title}
             </h1>
             <p className="text-lg text-zinc-600 dark:text-zinc-400">
@@ -61,7 +61,7 @@ export default function ProjectPage({ params }) {
             {/* Full Description */}
             <ScrollFadeIn delay={0.2}>
               <section>
-                <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-4">
+                <h2 className="text-section-md text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-4">
                   <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
                   Projekt Details
                 </h2>
@@ -78,7 +78,7 @@ export default function ProjectPage({ params }) {
             {/* Learnings */}
             <ScrollFadeIn delay={0.3}>
               <section>
-                <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-4">
+                <h2 className="text-section-md text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-4">
                   <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
                   Meine Lernerfahrungen
                 </h2>

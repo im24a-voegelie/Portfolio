@@ -7,7 +7,7 @@ export default function Card({
 }) {
   return (
     <div
-      className={`bg-white border border-violet-200 rounded-lg shadow-sm hover:shadow-md hover:border-violet-300 transition-all dark:bg-black dark:border-violet-800 dark:hover:border-violet-700 ${className}`}
+      className={`bg-white border border-violet-200 rounded-lg shadow-sm hover:shadow-lg hover:border-cyan-300 transition-all dark:bg-black dark:border-violet-800 dark:hover:border-cyan-600 ${className}`}
       {...props}
     >
       {children}
