@@ -3,8 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --accent-primary: from-cyan-400 to-blue-500;
-  --accent-primary-dark: from-cyan-300 to-blue-400;
 }
 
 @theme inline {
@@ -66,7 +64,7 @@ body {
       rgba(139, 92, 246, 0.02) 2px,
       rgba(139, 92, 246, 0.02) 4px
     );
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 @media (prefers-color-scheme: dark) {

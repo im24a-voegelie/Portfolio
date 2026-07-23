@@ -1,5 +1,6 @@
 'use client';
 
+import { use } from 'react';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from '@/components/animations/ScrollFadeIn';
@@ -8,7 +9,7 @@ import Card, { CardContent, CardHeader } from '@/components/ui/card';
 import Badge from '@/components/ui/badge';
 
 export default function ProjectPage({ params }) {
-  const { id } = params;
+  const { id } = use(params);
   const projectId = parseInt(id, 10);
   const project = projects.find((p) => p.id === projectId);
 

@@ -63,6 +63,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.3 }}
               className="p-2 rounded-lg transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-violet-900 hover:bg-violet-100 dark:hover:text-violet-400 dark:hover:bg-violet-950/40"
+              aria-label="E-Mail senden"
               title="E-Mail senden"
             >
               <FiMail size={18} />
@@ -75,6 +76,7 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.3 }}
               className="p-2 rounded-lg transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-violet-900 hover:bg-violet-100 dark:hover:text-violet-400 dark:hover:bg-violet-950/40"
+              aria-label="GitHub Profil"
               title="GitHub Profil"
             >
               <FiGithub size={18} />

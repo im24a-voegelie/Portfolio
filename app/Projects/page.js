@@ -1,8 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Card, { CardContent, CardHeader } from "@/components/ui/card";
-import Badge from "@/components/ui/badge";
+import Card, { CardHeader } from "@/components/ui/card";
 import Button from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
@@ -35,62 +34,22 @@ export default function ProjectsPage() {
                     <Link href={`/Projects/${project.id}`}>
                       <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300">
                         <CardHeader>
-                          <div className="flex flex-col gap-3">
-                            <div className="flex items-start justify-between">
-                              <div className="flex-1">
-                                <h2 className="text-subsection text-zinc-900 dark:text-zinc-50 group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
-                                  {project.title}
-                                </h2>
-                                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
-                                  <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>
-                                  {project.type}
-                                </p>
-                              </div>
-                              <span className="text-2xl">→</span>
+                          <div className="flex items-center justify-between gap-4">
+                            <div>
+                              <h2 className="text-subsection text-zinc-900 dark:text-zinc-50">
+                                {project.title}
+                              </h2>
+                              <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                                <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>
+                                {project.type}
+                              </p>
+                              <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-2">
+                                {project.description}
+                              </p>
                             </div>
-                            <p className="text-sm text-zinc-600 dark:text-zinc-300">
-                              {project.description}
-                            </p>
+                            <span className="text-2xl flex-shrink-0">→</span>
                           </div>
                         </CardHeader>
-                        <CardContent>
-                          <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4">
-                            {project.fullDescription}
-                          </p>
-
-                          {/* Technologies */}
-                          {project.technologies && project.technologies.length > 0 && (
-                            <div className="mb-4">
-                              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
-                                Technologien
-                              </p>
-                              <div className="flex flex-wrap gap-2">
-                                {project.technologies.map((tech, index) => (
-                                  <Badge key={index} variant="secondary">
-                                    {tech}
-                                  </Badge>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-
-                          {/* Learnings */}
-                          <div>
-                            <p className="text-xs font-semibold uppercase tracking-wider text-zinc-600 dark:text-zinc-400 mb-2">
-                              Wichtige Lernerfahrungen
-                            </p>
-                            <ul className="list-disc space-y-1 pl-5 text-xs text-zinc-700 dark:text-zinc-300">
-                              {project.learnings.slice(0, 2).map((learning, index) => (
-                                <li key={index}>{learning}</li>
-                              ))}
-                              {project.learnings.length > 2 && (
-                                <li className="text-violet-600 dark:text-violet-400">
-                                  +{project.learnings.length - 2} weitere
-                                </li>
-                              )}
-                            </ul>
-                          </div>
-                        </CardContent>
                       </Card>
                     </Link>
                   </AnimatedCard>
