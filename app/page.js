@@ -22,15 +22,15 @@ export default function Home() {
       <main className="w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-16">
         {/* Hero */}
         <ScrollFadeIn direction="down" duration={0.8} className="mb-12">
-          <section className="flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-center sm:justify-between">
-            <div>
+          <section className="flex flex-col gap-6 sm:mb-16">
+            <div className="w-full">
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
                 {t.home.badge}
               </p>
               <h1 className="mt-3 text-hero-lg bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
                 {t.home.name}
               </h1>
-              <p className="mt-3 max-w-xl text-zinc-600 dark:text-zinc-400">
+              <p className="mt-3 text-zinc-600 dark:text-zinc-400">
                 {t.home.tagline}
               </p>
             </div>
