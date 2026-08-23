@@ -7,6 +7,12 @@ import Button from '@/components/ui/button';
 import Card, { CardContent, CardHeader } from '@/components/ui/card';
 import Badge from '@/components/ui/badge';
 
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    id: project.id.toString(),
+  }));
+}
+
 export default function ProjectPage({ params }) {
   const { id } = params;
   const projectId = parseInt(id, 10);
@@ -145,12 +151,22 @@ export default function ProjectPage({ params }) {
                         rel="noopener noreferrer"
                         className="block px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg transition-colors text-center text-sm font-medium"
                       >
-                        GitHub Repository
+                        {project.links.githubBackend ? "GitHub (Frontend)" : "GitHub Repository"}
                       </a>
                     ) : (
                       <div className="px-4 py-2 bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 rounded-lg text-center text-sm font-medium opacity-50">
                         GitHub Link nicht verfügbar
                       </div>
+                    )}
+                    {project.links.githubBackend && (
+                      <a
+                        href={project.links.githubBackend}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg transition-colors text-center text-sm font-medium"
+                      >
+                        GitHub (Backend)
+                      </a>
                     )}
                     {project.links.demo ? (
                       <a

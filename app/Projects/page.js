@@ -54,9 +54,6 @@ export default function ProjectsPage() {
                           </div>
                         </CardHeader>
                         <CardContent>
-                          <p className="text-sm text-zinc-700 dark:text-zinc-300 mb-4">
-                            {project.fullDescription}
-                          </p>
 
                           {/* Technologies */}
                           {project.technologies && project.technologies.length > 0 && (
