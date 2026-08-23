@@ -1,6 +1,3 @@
-'use client';
-
-import { use } from 'react';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from '@/components/animations/ScrollFadeIn';
@@ -14,8 +11,8 @@ export function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }) {
-  const { id } = use(params);
+export default async function ProjectPage({ params }) {
+  const { id } = await params;
   const projectId = parseInt(id, 10);
   const project = projects.find((p) => p.id === projectId);
 
