@@ -25,7 +25,6 @@ export const translations = {
       aboutMe: 'Über mich',
       projectsHeading: 'Projekte',
       allProjects: 'Alle Projekte',
-      previewLearningsLabel: 'Meine Lernerfahrungen:',
       skillsHeading: 'Fähigkeiten & Kompetenzen',
     },
     about: {
@@ -151,7 +150,6 @@ export const translations = {
       aboutMe: 'About Me',
       projectsHeading: 'Projects',
       allProjects: 'All Projects',
-      previewLearningsLabel: 'What I learned:',
       skillsHeading: 'Skills & Competencies',
     },
     about: {

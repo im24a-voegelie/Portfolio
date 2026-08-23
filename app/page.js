@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
-import Card, { CardContent, CardHeader } from "@/components/ui/card";
+import Card, { CardHeader } from "@/components/ui/card";
 import Button from "@/components/ui/button";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -84,19 +84,6 @@ export default function Home() {
                           </p>
                         </div>
                       </CardHeader>
-                      <CardContent>
-                        <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                          {featuredProject.fullDescription[language]}
-                        </p>
-                        <p className="mt-3 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                          {t.home.previewLearningsLabel}
-                        </p>
-                        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                          {featuredProject.learnings[language].slice(0, 4).map((learning, idx) => (
-                            <li key={idx}>{learning}</li>
-                          ))}
-                        </ul>
-                      </CardContent>
                     </Card>
                   </Link>
                 </AnimatedCard>
