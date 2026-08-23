@@ -161,8 +161,8 @@ export const translations = {
       storyHeading: 'My Story',
       storyParagraphs: [
         "My name is Ennio Vögeli and I am 18 years old. Since childhood, I've had a deep fascination with technology and computer science. My father also works in this field, which has shaped my path and inspires me to always give my best.",
-        'I currently attend the Informatik Mittelschule at Kantonsschule Hottingen, a specialized program for application development. During this time, I develop not only technical skills but also important soft skills such as teamwork, problem-solving, and persistence.',
-        "What motivates me most is the opportunity to solve real-world problems with code. I love working on projects where I can use the latest technologies and express my creativity. At the same time, I'm a strong advocate for clean, maintainable code and best practices in software development.",
+        'I currently attend the Informatik Mittelschule at Kantonsschule Hottingen and completing an apprenticeship as an application developer. In addition to my technical skills, I am also continuing to develop my ability to work in a team, my focus on finding solutions, and my tenacity.',
+        "What motivates me most is the opportunity to solve real-world problems with code. I love working on projects where I can use the latest technologies and express my creativity.",
       ],
       skillsHeading: 'Skills & Knowledge',
       strengthsHeading: 'My Strengths',
