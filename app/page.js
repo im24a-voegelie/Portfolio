@@ -74,7 +74,7 @@ export default function Home() {
                 <AnimatedCard>
                   <Card className="hover:shadow-lg transition-shadow duration-300">
                     <Link href={`/Projects/${featuredProject.id}`}>
-                      <CardHeader className="cursor-pointer">
+                      <CardHeader className="cursor-pointer !border-b-0">
                         <div className="flex flex-col gap-1">
                           <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
                             {featuredProject.title[language]}
