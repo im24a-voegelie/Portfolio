@@ -191,4 +191,45 @@ export const projects = [
       github: "https://github.com/im24a-mendolag/shelfle",
     },
   },
+  {
+    id: 5,
+    wip: true,
+    title: {
+      de: "UNO – Browser-Kartenspiel",
+      en: "UNO – Browser Card Game",
+    },
+    type: {
+      de: "Persönliches Projekt",
+      en: "Personal Project",
+    },
+    description: {
+      de: "Browserbasiertes Multiplayer-UNO gegen Freunde oder CPU-Gegner",
+      en: "Browser-based multiplayer UNO against friends or CPU opponents",
+    },
+    fullDescription: {
+      de: "UNO ist ein browserbasiertes Kartenspiel, das ich in meiner Freizeit entwickle. Spieler können solo gegen drei CPU-Gegner antreten oder über einen Raumcode gemeinsam mit Freunden in einem Multiplayer-Raum mit 2 bis 4 Spielern spielen. Unbesetzte Plätze werden beim Spielstart automatisch mit KI-Gegnern aufgefüllt, gespielt wird über mehrere Runden bis 500 Punkte. Das Backend basiert auf Node.js mit einem WebSocket-Server, der als alleinige Quelle der Wahrheit für die Spielregeln dient – die Clients übernehmen nur Anzeige und Eingabe, was Cheating verhindert. Das Frontend ist in reinem Vanilla JavaScript ohne Build-Tools umgesetzt.",
+      en: "UNO is a browser-based card game I'm building in my spare time. Players can go solo against three CPU opponents or share a room code to play with friends in a multiplayer room of 2 to 4 players. Empty seats are automatically filled with AI opponents when a game starts, and play continues across multiple rounds up to 500 points. The backend is built on Node.js with a WebSocket server that acts as the single source of truth for the game rules — clients only handle display and input, which prevents cheating. The frontend is plain vanilla JavaScript with no build tools.",
+    },
+    learnings: {
+      de: [
+        "Aufbau eines autoritativen Game-Servers mit WebSockets ohne externes Framework",
+        "Trennung von Spiellogik (Server) und Darstellung (Client) zur Vermeidung von Cheating",
+        "Implementierung einer einfachen KI für CPU-Gegner",
+        "Verwaltung von Multiplayer-Räumen mit Raumcodes und dynamischem Auffüllen freier Plätze",
+        "Arbeiten mit reinem Vanilla JavaScript ohne Build-Tools oder Bundler",
+      ],
+      en: [
+        "Building an authoritative game server with WebSockets without an external framework",
+        "Separating game logic (server) from rendering (client) to prevent cheating",
+        "Implementing a simple AI for CPU opponents",
+        "Managing multiplayer rooms with room codes and dynamically filling empty seats",
+        "Working with plain vanilla JavaScript without build tools or a bundler",
+      ],
+    },
+    technologies: ["Node.js", "WebSocket", "JavaScript"],
+    links: {
+      demo: null,
+      github: "https://github.com/im24a-voegelie/UNO",
+    },
+  },
 ];

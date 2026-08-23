@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Card, { CardHeader } from "@/components/ui/card";
 import Button from "@/components/ui/button";
+import Badge from "@/components/ui/badge";
 import { projects } from "@/data/projects";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -38,8 +39,9 @@ export default function ProjectsPage() {
                         <CardHeader>
                           <div className="flex items-center justify-between gap-4">
                             <div>
-                              <h2 className="text-subsection text-zinc-900 dark:text-zinc-50">
+                              <h2 className="text-subsection text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
                                 {project.title[language]}
+                                {project.wip && <Badge variant="warning">{t.wipBadge}</Badge>}
                               </h2>
                               <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
                                 <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>

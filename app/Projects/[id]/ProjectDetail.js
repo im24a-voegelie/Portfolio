@@ -41,8 +41,9 @@ export default function ProjectDetail({ project }) {
         {/* Hero Section */}
         <ScrollFadeIn direction="down" duration={0.8} className="mb-12">
           <section>
-            <div className="mb-4">
+            <div className="mb-4 flex flex-wrap items-center gap-2">
               <Badge variant="primary">{project.type[language]}</Badge>
+              {project.wip && <Badge variant="warning">{t.wipBadge}</Badge>}
             </div>
             <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent mb-4">
               {project.title[language]}

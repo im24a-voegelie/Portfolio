@@ -11,7 +11,8 @@ export default function Badge({
     primary: 'bg-black text-white dark:bg-white dark:text-black',
     secondary: 'bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-300',
     outline: 'border border-gray-300 text-gray-700 dark:border-gray-600 dark:text-gray-300',
-    accent: 'bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-900 dark:from-cyan-900/30 dark:to-blue-900/30 dark:text-cyan-300'
+    accent: 'bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-900 dark:from-cyan-900/30 dark:to-blue-900/30 dark:text-cyan-300',
+    warning: 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300'
   };
 
   return (

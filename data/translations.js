@@ -10,6 +10,7 @@ export const translations = {
       projects: 'Projekte',
       about: 'Über mich',
     },
+    wipBadge: 'In Arbeit',
     header: {
       emailAria: 'E-Mail senden',
       githubAria: 'GitHub Profil',
@@ -135,6 +136,7 @@ export const translations = {
       projects: 'Projects',
       about: 'About Me',
     },
+    wipBadge: 'Work in Progress',
     header: {
       emailAria: 'Send email',
       githubAria: 'GitHub profile',
