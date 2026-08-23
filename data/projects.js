@@ -232,4 +232,44 @@ export const projects = [
       github: "https://github.com/im24a-voegelie/UNO",
     },
   },
+  {
+    id: 6,
+    title: {
+      de: "Portfolio – Persönliche Webseite",
+      en: "Portfolio – Personal Website",
+    },
+    type: {
+      de: "Persönliches Projekt",
+      en: "Personal Project",
+    },
+    description: {
+      de: "Diese Portfolio-Webseite selbst, gebaut mit Next.js und Tailwind CSS",
+      en: "This portfolio website itself, built with Next.js and Tailwind CSS",
+    },
+    fullDescription: {
+      de: "Diese Webseite ist mein persönliches Portfolio und stellt meine Projekte, Fähigkeiten und meinen Werdegang vor. Sie ist mit Next.js (App Router) und React umgesetzt, mit Tailwind CSS für das Styling und Framer Motion für Animationen wie Scroll-Effekte und Kartenübergänge. Die Seite unterstützt Deutsch und Englisch über einen eigenen Übersetzungsmechanismus sowie einen Light- und Dark-Mode.",
+      en: "This website is my personal portfolio, showcasing my projects, skills, and background. It's built with Next.js (App Router) and React, styled with Tailwind CSS, and uses Framer Motion for animations such as scroll effects and card transitions. The site supports both German and English through a custom translation setup, along with a light and dark mode.",
+    },
+    learnings: {
+      de: [
+        "Aufbau einer mehrsprachigen Webseite mit eigenem Übersetzungssystem",
+        "Strukturierung eines wachsenden Next.js-Projekts mit App Router",
+        "Umsetzung von Scroll- und Interaktionsanimationen mit Framer Motion",
+        "Konsistentes Component-Design mit wiederverwendbaren UI-Bausteinen",
+        "Implementierung von Light- und Dark-Mode mit Tailwind CSS",
+      ],
+      en: [
+        "Building a multilingual website with a custom translation system",
+        "Structuring a growing Next.js project using the App Router",
+        "Implementing scroll and interaction animations with Framer Motion",
+        "Designing consistent, reusable UI components",
+        "Implementing light and dark mode with Tailwind CSS",
+      ],
+    },
+    technologies: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    links: {
+      demo: "https://www.evoegeli.ch/",
+      github: "https://github.com/im24a-voegelie/Portfolio",
+    },
+  },
 ];
