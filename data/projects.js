@@ -86,7 +86,7 @@ export const projects = [
       "Zustand",
     ],
     links: {
-      demo: null,
+      demo: "https://sensitive-reserve.669ceb1.deploio.app/",
       github: "https://github.com/im24a-mendolag/hackathon-2026",
     },
   },
@@ -136,7 +136,7 @@ export const projects = [
       "Spring Security",
     ],
     links: {
-      demo: null,
+      demo: "https://schiffe-versenken.felix-eden.ch/login",
       github: "https://github.com/im24a-voegelie/Schiffeversenken-Frontend",
       githubBackend: "https://github.com/im24a-voegelie/Schiffeversenken-Backend",
     },
@@ -187,7 +187,7 @@ export const projects = [
       "NextAuth",
     ],
     links: {
-      demo: null,
+      demo: "https://shelfle.mendolag.ch/",
       github: "https://github.com/im24a-mendolag/shelfle",
     },
   },

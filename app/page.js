@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
-import Card, { CardHeader } from "@/components/ui/card";
+import Card, { CardHeader, CardContent } from "@/components/ui/card";
 import Button from "@/components/ui/button";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -72,9 +72,9 @@ export default function Home() {
                 </div>
 
                 <AnimatedCard>
-                  <Link href={`/Projects/${featuredProject.id}`}>
-                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300">
-                      <CardHeader>
+                  <Card className="hover:shadow-lg transition-shadow duration-300">
+                    <Link href={`/Projects/${featuredProject.id}`}>
+                      <CardHeader className="cursor-pointer">
                         <div className="flex flex-col gap-1">
                           <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
                             {featuredProject.title[language]}
@@ -84,8 +84,30 @@ export default function Home() {
                           </p>
                         </div>
                       </CardHeader>
-                    </Card>
-                  </Link>
+                    </Link>
+                    <CardContent className="pt-0 flex flex-wrap gap-3">
+                      {featuredProject.links.github && (
+                        <a
+                          href={featuredProject.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg transition-colors text-center text-sm font-medium"
+                        >
+                          {t.projectDetail.githubRepo}
+                        </a>
+                      )}
+                      {featuredProject.links.demo && (
+                        <a
+                          href={featuredProject.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="px-4 py-2 bg-violet-600 hover:bg-violet-700 text-white rounded-lg transition-colors text-center text-sm font-medium"
+                        >
+                          {t.projectDetail.demo}
+                        </a>
+                      )}
+                    </CardContent>
+                  </Card>
                 </AnimatedCard>
               </section>
             </ScrollFadeIn>
