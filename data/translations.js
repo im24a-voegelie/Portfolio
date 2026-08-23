@@ -24,19 +24,7 @@ export const translations = {
       aboutMe: 'Über mich',
       projectsHeading: 'Projekte',
       allProjects: 'Alle Projekte',
-      preview: {
-        title: 'IMS Grades – Notenrechnungs- und Anzeige-Webseite',
-        subtitle:
-          'Webapplikation zur Berechnung und übersichtlichen Anzeige von Schulnoten.',
-        body: 'Dieses Projekt habe ich gemeinsam mit zwei Kameraden im Rahmen eines Hackathons entwickelt. Ziel war es, eine Webapplikation zu erstellen, mit der Schulnoten berechnet und übersichtlich dargestellt werden können.',
-        learningsLabel: 'Meine Lernerfahrungen:',
-        learnings: [
-          'Effektive Kommunikation im Team',
-          'Planung und Umsetzung einer vollständigen Webapplikation',
-          'Zusammenarbeit unter Zeitdruck',
-          'Anwendung meiner technischen Kenntnisse in einem praxisnahen Projekt',
-        ],
-      },
+      previewLearningsLabel: 'Meine Lernerfahrungen:',
       skillsHeading: 'Fähigkeiten & Kompetenzen',
     },
     about: {
@@ -162,19 +150,7 @@ export const translations = {
       aboutMe: 'About Me',
       projectsHeading: 'Projects',
       allProjects: 'All Projects',
-      preview: {
-        title: 'IMS Grades – Grade Calculation & Display Website',
-        subtitle:
-          'Web application for calculating and clearly displaying school grades.',
-        body: 'I developed this project together with two classmates during a hackathon. The goal was to build a web application that lets students calculate and clearly view their school grades.',
-        learningsLabel: 'What I learned:',
-        learnings: [
-          'Effective communication within the team',
-          'Planning and building a complete web application',
-          'Collaborating under time pressure',
-          'Applying my technical skills in a practical project',
-        ],
-      },
+      previewLearningsLabel: 'What I learned:',
       skillsHeading: 'Skills & Competencies',
     },
     about: {

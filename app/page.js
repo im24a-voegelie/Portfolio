@@ -10,10 +10,13 @@ import { SnakeGame } from "@/components/games/SnakeGame";
 import Modal from "@/components/ui/modal";
 import SkillsWithIcons from "@/components/SkillsWithIcons";
 import { useTranslation } from "@/components/LanguageProvider";
+import { projects } from "@/data/projects";
+
+const featuredProject = projects.find((project) => project.id === 4);
 
 export default function Home() {
   const [showGame, setShowGame] = useState(false);
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -69,31 +72,33 @@ export default function Home() {
                 </div>
 
                 <AnimatedCard>
-                  <Card>
-                    <CardHeader>
-                      <div className="flex flex-col gap-1">
-                        <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
-                          {t.home.preview.title}
-                        </h3>
-                        <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                          {t.home.preview.subtitle}
+                  <Link href={`/Projects/${featuredProject.id}`}>
+                    <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300">
+                      <CardHeader>
+                        <div className="flex flex-col gap-1">
+                          <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
+                            {featuredProject.title[language]}
+                          </h3>
+                          <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                            {featuredProject.description[language]}
+                          </p>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                          {featuredProject.fullDescription[language]}
                         </p>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        {t.home.preview.body}
-                      </p>
-                      <p className="mt-3 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                        {t.home.preview.learningsLabel}
-                      </p>
-                      <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                        {t.home.preview.learnings.map((learning, idx) => (
-                          <li key={idx}>{learning}</li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+                        <p className="mt-3 text-sm font-medium text-zinc-900 dark:text-zinc-100">
+                          {t.home.previewLearningsLabel}
+                        </p>
+                        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
+                          {featuredProject.learnings[language].slice(0, 4).map((learning, idx) => (
+                            <li key={idx}>{learning}</li>
+                          ))}
+                        </ul>
+                      </CardContent>
+                    </Card>
+                  </Link>
                 </AnimatedCard>
               </section>
             </ScrollFadeIn>
