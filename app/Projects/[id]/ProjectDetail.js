@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { ScrollFadeIn, StaggerContainer, StaggerChild } from '@/components/animations/ScrollFadeIn';
+import { ScrollFadeIn } from '@/components/animations/ScrollFadeIn';
 import Button from '@/components/ui/button';
 import Card, { CardContent, CardHeader } from '@/components/ui/card';
 import Badge from '@/components/ui/badge';
@@ -70,36 +70,6 @@ export default function ProjectDetail({ project }) {
                     </p>
                   </CardContent>
                 </Card>
-              </section>
-            </ScrollFadeIn>
-
-            {/* Learnings */}
-            <ScrollFadeIn delay={0.3}>
-              <section>
-                <h2 className="text-section-md text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-4">
-                  <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                  {t.projectDetail.learningsHeading}
-                </h2>
-                <StaggerContainer delay={0.4}>
-                  <div className="space-y-3">
-                    {project.learnings[language].map((learning, idx) => (
-                      <StaggerChild key={idx}>
-                        <Card>
-                          <CardContent className="pt-4">
-                            <div className="flex gap-3">
-                              <span className="text-violet-500 font-bold flex-shrink-0 text-lg">
-                                ✓
-                              </span>
-                              <p className="text-zinc-700 dark:text-zinc-300">
-                                {learning}
-                              </p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </StaggerChild>
-                    ))}
-                  </div>
-                </StaggerContainer>
               </section>
             </ScrollFadeIn>
           </div>
