@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import Link from "next/link";
 import Card, { CardHeader, CardContent } from "@/components/ui/card";
-import Button from "@/components/ui/button";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { SnakeGame } from "@/components/games/SnakeGame";
@@ -34,20 +33,6 @@ export default function Home() {
               <p className="mt-3 max-w-xl text-zinc-600 dark:text-zinc-400">
                 {t.home.tagline}
               </p>
-            </div>
-            <div className="flex flex-col gap-3">
-              <div className="flex gap-3">
-                <Link href="#projekte">
-                  <Button variant="primary" size="md">
-                    {t.home.viewProjects}
-                  </Button>
-                </Link>
-                <Link href="#ueber-mich">
-                  <Button variant="secondary" size="md">
-                    {t.home.aboutMe}
-                  </Button>
-                </Link>
-              </div>
             </div>
           </section>
         </ScrollFadeIn>

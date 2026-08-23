@@ -21,8 +21,6 @@ export const translations = {
       name: 'Ennio Vögeli',
       tagline:
         '18-jähriger Schüler der Informatik Mittelschule an der Kantonsschule Hottingen – mit grosser Begeisterung für Softwareentwicklung, sauberen Code und das Lösen realer Probleme.',
-      viewProjects: 'Projekte ansehen',
-      aboutMe: 'Über mich',
       projectsHeading: 'Projekte',
       allProjects: 'Alle Projekte',
       skillsHeading: 'Fähigkeiten & Kompetenzen',
@@ -146,8 +144,6 @@ export const translations = {
       name: 'Ennio Vögeli',
       tagline:
         '18-year-old student at the Informatik Mittelschule at Kantonsschule Hottingen – passionate about software development, clean code, and solving real-world problems.',
-      viewProjects: 'View Projects',
-      aboutMe: 'About Me',
       projectsHeading: 'Projects',
       allProjects: 'All Projects',
       skillsHeading: 'Skills & Competencies',
