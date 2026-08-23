@@ -1,38 +1,48 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+
+const slideVariants = {
+  enter: (dir) => ({
+    x: dir > 0 ? 1000 : -1000,
+    opacity: 0,
+  }),
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (dir) => ({
+    zIndex: 0,
+    x: dir < 0 ? 1000 : -1000,
+    opacity: 0,
+  }),
+};
 
 export default function SkillsCarousel({ skills }) {
   const [currentGroup, setCurrentGroup] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const resumeTimer = useRef(null);
 
-  const slideVariants = {
-    enter: (dir) => ({
-      x: dir > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (dir) => ({
-      zIndex: 0,
-      x: dir < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
+  const pauseAndResume = () => {
+    clearTimeout(resumeTimer.current);
+    setIsAutoPlay(false);
+    resumeTimer.current = setTimeout(() => setIsAutoPlay(true), 8000);
   };
+
+  useEffect(() => {
+    return () => clearTimeout(resumeTimer.current);
+  }, []);
 
   const paginate = (newDirection) => {
     setDirection(newDirection);
     setCurrentGroup(
       (prev) => (prev + newDirection + skills.length) % skills.length
     );
-    setIsAutoPlay(false);
-    setTimeout(() => setIsAutoPlay(true), 8000);
+    pauseAndResume();
   };
 
   useEffect(() => {
@@ -45,6 +55,8 @@ export default function SkillsCarousel({ skills }) {
 
     return () => clearInterval(interval);
   }, [isAutoPlay, skills.length]);
+
+  if (!skills?.length) return null;
 
   const currentSkillGroup = skills[currentGroup];
 
@@ -72,7 +84,7 @@ export default function SkillsCarousel({ skills }) {
             <div className="flex flex-wrap justify-center gap-3 max-w-2xl">
               {currentSkillGroup.items.map((skill, idx) => (
                 <motion.div
-                  key={idx}
+                  key={skill.name}
                   initial={{ opacity: 0, scale: 0.8, y: 10 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
@@ -104,21 +116,20 @@ export default function SkillsCarousel({ skills }) {
 
       {/* Dots Indicator */}
       <div className="flex gap-2 justify-center mt-4">
-        {skills.map((_, idx) => (
+        {skills.map((group, idx) => (
           <motion.button
             key={idx}
             onClick={() => {
               setDirection(idx > currentGroup ? 1 : -1);
               setCurrentGroup(idx);
-              setIsAutoPlay(false);
-              setTimeout(() => setIsAutoPlay(true), 8000);
+              pauseAndResume();
             }}
             className={`h-2 rounded-full transition-all ${
               idx === currentGroup
                 ? 'bg-violet-600 dark:bg-violet-500 w-8'
                 : 'bg-violet-300 dark:bg-violet-700 w-2 hover:bg-violet-400 dark:hover:bg-violet-600'
             }`}
-            aria-label={`Go to ${skills[idx].category}`}
+            aria-label={`Go to ${group.category}`}
           />
         ))}
       </div>
