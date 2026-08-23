@@ -6,8 +6,11 @@ import Button from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
+import { useTranslation } from "@/components/LanguageProvider";
 
 export default function ProjectsPage() {
+  const { t, language } = useTranslation();
+
   return (
     <div className="flex min-h-screen justify-center">
       <main className="w-full max-w-4xl px-6 py-12 sm:px-10 sm:py-16">
@@ -15,11 +18,10 @@ export default function ProjectsPage() {
         <ScrollFadeIn direction="down" duration={0.8} className="mb-12">
           <header>
             <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
-              Projekte
+              {t.projectsPage.heading}
             </h1>
             <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400 text-lg">
-              Eine Auswahl meiner bisherigen Arbeiten mit Fokus auf Webentwicklung
-              und praxisnahe Softwareprojekte. Klicke auf ein Projekt um mehr zu erfahren.
+              {t.projectsPage.subtitle}
             </p>
           </header>
         </ScrollFadeIn>
@@ -37,14 +39,14 @@ export default function ProjectsPage() {
                           <div className="flex items-center justify-between gap-4">
                             <div>
                               <h2 className="text-subsection text-zinc-900 dark:text-zinc-50">
-                                {project.title}
+                                {project.title[language]}
                               </h2>
                               <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
                                 <span className="inline-block mr-2 w-2 h-2 bg-gradient-to-r from-violet-900 to-violet-700 rounded-full"></span>
-                                {project.type}
+                                {project.type[language]}
                               </p>
                               <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-2">
-                                {project.description}
+                                {project.description[language]}
                               </p>
                             </div>
                             <span className="text-2xl flex-shrink-0">→</span>
@@ -58,7 +60,7 @@ export default function ProjectsPage() {
             ) : (
               <div className="text-center py-12">
                 <p className="text-zinc-600 dark:text-zinc-400 mb-4">
-                  Keine Projekte verfügbar. Bald mehrere hinzufügen!
+                  {t.projectsPage.empty}
                 </p>
               </div>
             )}
@@ -69,13 +71,13 @@ export default function ProjectsPage() {
         <ScrollFadeIn delay={0.5} className="mt-16 pt-12 border-t border-zinc-200 dark:border-zinc-800">
           <div className="text-center">
             <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 mb-3">
-              Möchte mehr über mich erfahren?
+              {t.projectsPage.ctaHeading}
             </h2>
             <p className="text-zinc-600 dark:text-zinc-400 mb-6 max-w-md mx-auto">
-              Sieh dir mein Profil an, um mehr über meine Fähigkeiten und Leidenschaft für Softwareentwicklung zu erfahren.
+              {t.projectsPage.ctaSubtitle}
             </p>
             <Link href="/about">
-              <Button variant="primary">Über mich</Button>
+              <Button variant="primary">{t.projectsPage.ctaButton}</Button>
             </Link>
           </div>
         </ScrollFadeIn>

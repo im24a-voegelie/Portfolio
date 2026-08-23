@@ -4,11 +4,14 @@ import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/anima
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import Card, { CardContent, CardHeader } from "@/components/ui/card";
 import SkillsCarousel from "@/components/SkillsCarousel";
+import { useTranslation } from "@/components/LanguageProvider";
 
 export default function AboutPage() {
+  const { t } = useTranslation();
+
   const skills = [
     {
-      category: "Programmiersprachen",
+      category: t.skillLabels.programming,
       items: [
         { name: "Python" },
         { name: "JavaScript" },
@@ -16,7 +19,7 @@ export default function AboutPage() {
       ],
     },
     {
-      category: "Webentwicklung",
+      category: t.skillLabels.web,
       items: [
         { name: "HTML" },
         { name: "CSS" },
@@ -26,14 +29,14 @@ export default function AboutPage() {
       ],
     },
     {
-      category: "Datenbanken",
+      category: t.skillLabels.db,
       items: [
         { name: "MySQL" },
         { name: "MongoDB" },
       ],
     },
     {
-      category: "Tools & Plattformen",
+      category: t.skillLabels.tools,
       items: [
         { name: "Git" },
         { name: "GitHub" },
@@ -43,23 +46,7 @@ export default function AboutPage() {
     },
   ];
 
-  const milestones = [
-    {
-      year: "2024",
-      title: "Informatik Mittelschule",
-      description: "Beginn der Ausbildung zum Applikationsentwickler an der Kantonsschule Hottingen",
-    },
-    {
-      year: "2024",
-      title: "Hackathon - IMS Grades",
-      description: "Entwicklung einer Webapplikation zur Notenberechnung und -anzeige",
-    },
-    {
-      year: "2025",
-      title: "Kontinuierliche Weiterentwicklung",
-      description: "Vertiefung von React, Next.js und erweiterte JavaScript-Konzepte",
-    },
-  ];
+  const milestones = t.about.milestones;
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -68,10 +55,10 @@ export default function AboutPage() {
         <ScrollFadeIn direction="down" duration={0.8}>
           <section className="mb-16">
             <h1 className="text-hero-md bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
-              Über mich
+              {t.about.heroTitle}
             </h1>
             <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-lg">
-              Lerne mehr über Ennio Vögeli, einen 17-jährigen Informatik-Schüler mit Leidenschaft für Softwareentwicklung und Innovation.
+              {t.about.heroSubtitle}
             </p>
           </section>
         </ScrollFadeIn>
@@ -82,20 +69,14 @@ export default function AboutPage() {
             <section>
               <h2 className="text-section-md text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                Meine Geschichte
+                {t.about.storyHeading}
               </h2>
               <Card>
                 <CardContent className="pt-6">
                   <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
-                    <p>
-                      Mein Name ist Ennio Vögeli und ich bin 17 Jahre alt. Seit meiner Kindheit habe ich eine tiefe Faszination für Technologie und Informatik. Mein Vater arbeitet ebenfalls in diesem Bereich, was meinen Weg geprägt hat und mich inspiriert, mein bestes zu geben.
-                    </p>
-                    <p>
-                      Aktuell besuche ich die Informatik Mittelschule an der Kantonsschule Hottingen, eine spezialisierte Ausbildung zum Applikationsentwickler. In dieser Zeit entwickle ich nicht nur technische Fähigkeiten, sondern lerne auch wichtige Soft Skills wie Teamfähigkeit, Problemlösungsfähigkeiten und Hartnäckigkeit.
-                    </p>
-                    <p>
-                      Was mich besonders motiviert, ist die Möglichkeit, mit Code reale Probleme zu lösen. Ich liebe es, an Projekten zu arbeiten, bei denen ich neueste Technologien einsetzen und meine Kreativität ausleben kann. Gleichzeitig bin ich ein Verfechter von sauberem, wartbarem Code und Best Practices in der Softwareentwicklung.
-                    </p>
+                    {t.about.storyParagraphs.map((paragraph, idx) => (
+                      <p key={idx}>{paragraph}</p>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -107,7 +88,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                Fähigkeiten & Kenntnisse
+                {t.about.skillsHeading}
               </h2>
               <SkillsCarousel skills={skills} />
             </section>
@@ -118,43 +99,21 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                Meine Stärken
+                {t.about.strengthsHeading}
               </h2>
               <Card>
                 <CardContent className="pt-6">
                   <div className="grid sm:grid-cols-2 gap-6">
-                    <div>
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        Fokussiert & Zielorientiert
-                      </h3>
-                      <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        Ich setze mir klare Ziele und arbeite systematisch daran, diese zu erreichen.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        Teamfähig
-                      </h3>
-                      <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        Gute Kommunikation und Zusammenarbeit sind für erfolgreiche Projekte essentiell.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        Hartnäckigkeit
-                      </h3>
-                      <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        Bei Herausforderungen gebe ich nicht auf, sondern suche nach kreativen Lösungen.
-                      </p>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
-                        Lernbereitschaft
-                      </h3>
-                      <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        Die Tech-Welt entwickelt sich schnell. Ich liebe es, Neues zu lernen.
-                      </p>
-                    </div>
+                    {t.about.strengths.map((strength, idx) => (
+                      <div key={idx}>
+                        <h3 className="font-semibold text-zinc-900 dark:text-zinc-50 mb-2">
+                          {strength.title}
+                        </h3>
+                        <p className="text-sm text-zinc-700 dark:text-zinc-300">
+                          {strength.description}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </CardContent>
               </Card>
@@ -166,7 +125,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                Mein Weg
+                {t.about.journeyHeading}
               </h2>
               <div className="space-y-6">
                 <StaggerContainer delay={0.5}>
@@ -207,12 +166,12 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl font-semibold text-zinc-900 dark:text-zinc-50 flex items-center gap-3 mb-6">
                 <span className="inline-block w-1 h-8 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                Kontakt
+                {t.about.contactHeading}
               </h2>
               <Card>
                 <CardContent className="pt-6">
                   <p className="text-zinc-700 dark:text-zinc-300 mb-6">
-                    Ich bin offen für Anfragen, Kooperationen und neue Möglichkeiten. Kontaktiere mich gerne über folgende Kanäle:
+                    {t.about.contactIntro}
                   </p>
                   <div className="flex flex-col gap-3">
                     <a
@@ -221,7 +180,7 @@ export default function AboutPage() {
                     >
                       <span className="text-lg">✉️</span>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-zinc-50">E-Mail</p>
+                        <p className="font-medium text-zinc-900 dark:text-zinc-50">{t.about.emailLabel}</p>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">ennio.voegeli@gmx.ch</p>
                       </div>
                     </a>
@@ -233,7 +192,7 @@ export default function AboutPage() {
                     >
                       <span className="text-lg">GitHub</span>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-zinc-50">GitHub Profil</p>
+                        <p className="font-medium text-zinc-900 dark:text-zinc-50">{t.about.githubLabel}</p>
                         <p className="text-sm text-zinc-600 dark:text-zinc-400">@im24a-voegelie</p>
                       </div>
                     </a>

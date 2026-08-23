@@ -2,8 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from '@/components/LanguageProvider';
 
 export function ScrollToTopButton() {
+  const { t } = useTranslation();
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => {
@@ -39,7 +41,7 @@ export function ScrollToTopButton() {
           exit={{ opacity: 0, scale: 0.8, y: 20 }}
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 p-3 bg-violet-600 hover:bg-violet-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all z-40"
-          title="Zurück nach oben"
+          title={t.scrollToTop}
         >
           <svg
             className="w-6 h-6"

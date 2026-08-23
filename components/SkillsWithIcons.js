@@ -14,11 +14,14 @@ import {
   SiHtml5
 } from 'react-icons/si';
 import { FaCss3Alt } from 'react-icons/fa';
+import { useTranslation } from '@/components/LanguageProvider';
 
 export default function SkillsWithIcons() {
+  const { t } = useTranslation();
+
   const skills = [
     {
-      category: 'Programmiersprachen',
+      category: t.skillLabels.programming,
       icon: FiCode,
       items: [
         { name: 'Python', icon: SiPython, color: '#3776AB' },
@@ -26,7 +29,7 @@ export default function SkillsWithIcons() {
       ]
     },
     {
-      category: 'Webentwicklung',
+      category: t.skillLabels.web,
       icon: null,
       items: [
         { name: 'HTML', icon: SiHtml5, color: '#E34C26' },
@@ -34,7 +37,7 @@ export default function SkillsWithIcons() {
       ]
     },
     {
-      category: 'Datenbanken',
+      category: t.skillLabels.db,
       icon: FiDatabase,
       items: [
         { name: 'MySQL', icon: SiMysql, color: '#00758F' },
@@ -42,12 +45,12 @@ export default function SkillsWithIcons() {
       ]
     },
     {
-      category: 'Stärken',
+      category: t.skillLabels.strengths,
       icon: FiTarget,
       items: [
-        { name: 'Teamfähigkeit' },
-        { name: 'Problemlösung' },
-        { name: 'Weiterentwicklung' }
+        { name: t.strengthNames.teamwork },
+        { name: t.strengthNames.problemSolving },
+        { name: t.strengthNames.growth }
       ]
     }
   ];

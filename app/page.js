@@ -9,9 +9,11 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { SnakeGame } from "@/components/games/SnakeGame";
 import Modal from "@/components/ui/modal";
 import SkillsWithIcons from "@/components/SkillsWithIcons";
+import { useTranslation } from "@/components/LanguageProvider";
 
 export default function Home() {
   const [showGame, setShowGame] = useState(false);
+  const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen justify-center">
@@ -21,27 +23,25 @@ export default function Home() {
           <section className="flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <p className="text-sm font-medium uppercase tracking-[0.2em] text-zinc-500 dark:text-zinc-400">
-                Portfolio
+                {t.home.badge}
               </p>
               <h1 className="mt-3 text-hero-lg bg-gradient-to-r from-violet-900 to-violet-700 dark:from-violet-400 dark:to-violet-600 bg-clip-text text-transparent">
-                Ennio Vögeli
+                {t.home.name}
               </h1>
               <p className="mt-3 max-w-xl text-zinc-600 dark:text-zinc-400">
-                17-jähriger Schüler der Informatik Mittelschule an der
-                Kantonsschule Hottingen – mit grosser Begeisterung für
-                Softwareentwicklung, sauberen Code und das Lösen realer Probleme.
+                {t.home.tagline}
               </p>
             </div>
             <div className="flex flex-col gap-3">
               <div className="flex gap-3">
                 <Link href="#projekte">
                   <Button variant="primary" size="md">
-                    Projekte ansehen
+                    {t.home.viewProjects}
                   </Button>
                 </Link>
                 <Link href="#ueber-mich">
                   <Button variant="secondary" size="md">
-                    Über mich
+                    {t.home.aboutMe}
                   </Button>
                 </Link>
               </div>
@@ -58,13 +58,13 @@ export default function Home() {
                 <div className="mb-4 flex items-center justify-between gap-3">
                   <h2 className="text-section-lg text-zinc-900 dark:text-zinc-50 flex items-center gap-2">
                     <span className="inline-block w-1 h-6 bg-gradient-to-b from-violet-900 to-violet-700 rounded-full"></span>
-                    Projekte
+                    {t.home.projectsHeading}
                   </h2>
                   <Link
                     href="/Projects"
                     className="text-sm font-medium text-violet-900 underline-offset-4 hover:text-violet-800 hover:underline dark:text-violet-400 dark:hover:text-violet-300 transition-colors"
                   >
-                    Alle Projekte
+                    {t.home.allProjects}
                   </Link>
                 </div>
 
@@ -73,32 +73,24 @@ export default function Home() {
                     <CardHeader>
                       <div className="flex flex-col gap-1">
                         <h3 className="text-subsection text-zinc-900 dark:text-zinc-50">
-                          IMS Grades – Notenrechnungs- und Anzeige-Webseite
+                          {t.home.preview.title}
                         </h3>
                         <p className="text-sm text-zinc-500 dark:text-zinc-400">
-                          Webapplikation zur Berechnung und übersichtlichen Anzeige
-                          von Schulnoten.
+                          {t.home.preview.subtitle}
                         </p>
                       </div>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-zinc-700 dark:text-zinc-300">
-                        Dieses Projekt habe ich gemeinsam mit zwei Kameraden im
-                        Rahmen eines Hackathons entwickelt. Ziel war es, eine
-                        Webapplikation zu erstellen, mit der Schulnoten berechnet
-                        und übersichtlich dargestellt werden können.
+                        {t.home.preview.body}
                       </p>
                       <p className="mt-3 text-sm font-medium text-zinc-900 dark:text-zinc-100">
-                        Meine Lernerfahrungen:
+                        {t.home.preview.learningsLabel}
                       </p>
                       <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-zinc-700 dark:text-zinc-300">
-                        <li>Effektive Kommunikation im Team</li>
-                        <li>Planung und Umsetzung einer vollständigen Webapplikation</li>
-                        <li>Zusammenarbeit unter Zeitdruck</li>
-                        <li>
-                          Anwendung meiner technischen Kenntnisse in einem
-                          praxisnahen Projekt
-                        </li>
+                        {t.home.preview.learnings.map((learning, idx) => (
+                          <li key={idx}>{learning}</li>
+                        ))}
                       </ul>
                     </CardContent>
                   </Card>
@@ -112,7 +104,7 @@ export default function Home() {
             <aside className="space-y-6">
               <section>
                 <h2 className="text-section-md text-violet-900 dark:text-violet-400">
-                  Fähigkeiten &amp; Kompetenzen
+                  {t.home.skillsHeading}
                 </h2>
                 <SkillsWithIcons />
               </section>

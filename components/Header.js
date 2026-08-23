@@ -4,9 +4,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { FiGithub, FiMail } from 'react-icons/fi';
+import { useLanguage, useTranslation } from "@/components/LanguageProvider";
 
 export default function Header() {
   const pathname = usePathname();
+  const { t, language } = useTranslation();
+  const { toggleLanguage } = useLanguage();
 
   const isActive = (href) => {
     if (href === "/" && pathname === "/") return true;
@@ -15,9 +18,9 @@ export default function Header() {
   };
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/Projects", label: "Projekte" },
-    { href: "/about", label: "Über mich" },
+    { href: "/", label: t.nav.home },
+    { href: "/Projects", label: t.nav.projects },
+    { href: "/about", label: t.nav.about },
   ];
 
   return (
@@ -63,8 +66,8 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.3 }}
               className="p-2 rounded-lg transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-violet-900 hover:bg-violet-100 dark:hover:text-violet-400 dark:hover:bg-violet-950/40"
-              aria-label="E-Mail senden"
-              title="E-Mail senden"
+              aria-label={t.header.emailAria}
+              title={t.header.emailAria}
             >
               <FiMail size={18} />
             </motion.a>
@@ -76,12 +79,41 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.3 }}
               className="p-2 rounded-lg transition-all duration-200 text-zinc-600 dark:text-zinc-400 hover:text-violet-900 hover:bg-violet-100 dark:hover:text-violet-400 dark:hover:bg-violet-950/40"
-              aria-label="GitHub Profil"
-              title="GitHub Profil"
+              aria-label={t.header.githubAria}
+              title={t.header.githubAria}
             >
               <FiGithub size={18} />
             </motion.a>
           </div>
+
+          <motion.button
+            onClick={toggleLanguage}
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.3 }}
+            aria-label={t.header.languageSwitchAria}
+            title={t.header.languageSwitchAria}
+            className="ml-2 flex items-center gap-1 rounded-full border border-violet-900/20 dark:border-violet-800/30 p-0.5 text-xs font-semibold"
+          >
+            <span
+              className={`px-2 py-1 rounded-full transition-colors ${
+                language === "de"
+                  ? "bg-violet-900 text-white dark:bg-violet-600"
+                  : "text-zinc-500 dark:text-zinc-400"
+              }`}
+            >
+              DE
+            </span>
+            <span
+              className={`px-2 py-1 rounded-full transition-colors ${
+                language === "en"
+                  ? "bg-violet-900 text-white dark:bg-violet-600"
+                  : "text-zinc-500 dark:text-zinc-400"
+              }`}
+            >
+              EN
+            </span>
+          </motion.button>
         </div>
       </nav>
     </motion.header>
