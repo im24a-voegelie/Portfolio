@@ -20,7 +20,7 @@ export const translations = {
       badge: 'Portfolio',
       name: 'Ennio Vögeli',
       tagline:
-        '17-jähriger Schüler der Informatik Mittelschule an der Kantonsschule Hottingen – mit grosser Begeisterung für Softwareentwicklung, sauberen Code und das Lösen realer Probleme.',
+        '18-jähriger Schüler der Informatik Mittelschule an der Kantonsschule Hottingen – mit grosser Begeisterung für Softwareentwicklung, sauberen Code und das Lösen realer Probleme.',
       viewProjects: 'Projekte ansehen',
       aboutMe: 'Über mich',
       projectsHeading: 'Projekte',
@@ -31,12 +31,12 @@ export const translations = {
     about: {
       heroTitle: 'Über mich',
       heroSubtitle:
-        'Lerne mehr über Ennio Vögeli, einen 17-jährigen Informatik-Schüler mit Leidenschaft für Softwareentwicklung und Innovation.',
+        'Lerne mehr über Ennio Vögeli, einen 18-jährigen Informatik-Schüler mit Leidenschaft für Softwareentwicklung und Innovation.',
       storyHeading: 'Meine Geschichte',
       storyParagraphs: [
-        'Mein Name ist Ennio Vögeli und ich bin 17 Jahre alt. Seit meiner Kindheit habe ich eine tiefe Faszination für Technologie und Informatik. Mein Vater arbeitet ebenfalls in diesem Bereich, was meinen Weg geprägt hat und mich inspiriert, mein bestes zu geben.',
-        'Aktuell besuche ich die Informatik Mittelschule an der Kantonsschule Hottingen, eine spezialisierte Ausbildung zum Applikationsentwickler. In dieser Zeit entwickle ich nicht nur technische Fähigkeiten, sondern lerne auch wichtige Soft Skills wie Teamfähigkeit, Problemlösungsfähigkeiten und Hartnäckigkeit.',
-        'Was mich besonders motiviert, ist die Möglichkeit, mit Code reale Probleme zu lösen. Ich liebe es, an Projekten zu arbeiten, bei denen ich neueste Technologien einsetzen und meine Kreativität ausleben kann. Gleichzeitig bin ich ein Verfechter von sauberem, wartbarem Code und Best Practices in der Softwareentwicklung.',
+        'Mein Name ist Ennio Vögeli und ich bin 18 Jahre alt. Seit meiner Kindheit habe ich eine tiefe Faszination für Technologie und Informatik. Mein Vater arbeitet ebenfalls in diesem Bereich, was meinen Weg geprägt hat und mich inspiriert, mein bestes zu geben.',
+        'Aktuell besuche ich die Informatik Mittelschule an der Kantonsschule Hottingen und absolviere eine Ausbildung zum Applikationsentwickler. Neben den technischen Fähigkeiten entwickle ich auch meine Teamfähigkeit, Lösungsorientierung und Hartnäckigkeit weiter.',
+        'Was mich besonders motiviert, ist die Möglichkeit, mit Code reale Probleme zu lösen. Ich liebe es, an Projekten zu arbeiten, bei denen ich neueste Technologien einsetzen und meine Kreativität ausleben kann.',
       ],
       skillsHeading: 'Fähigkeiten & Kenntnisse',
       strengthsHeading: 'Meine Stärken',
@@ -146,7 +146,7 @@ export const translations = {
       badge: 'Portfolio',
       name: 'Ennio Vögeli',
       tagline:
-        '17-year-old student at the Informatik Mittelschule at Kantonsschule Hottingen – passionate about software development, clean code, and solving real-world problems.',
+        '18-year-old student at the Informatik Mittelschule at Kantonsschule Hottingen – passionate about software development, clean code, and solving real-world problems.',
       viewProjects: 'View Projects',
       aboutMe: 'About Me',
       projectsHeading: 'Projects',
@@ -157,10 +157,10 @@ export const translations = {
     about: {
       heroTitle: 'About Me',
       heroSubtitle:
-        'Learn more about Ennio Vögeli, a 17-year-old computer science student passionate about software development and innovation.',
+        'Learn more about Ennio Vögeli, a 18-year-old computer science student passionate about software development and innovation.',
       storyHeading: 'My Story',
       storyParagraphs: [
-        "My name is Ennio Vögeli and I am 17 years old. Since childhood, I've had a deep fascination with technology and computer science. My father also works in this field, which has shaped my path and inspires me to always give my best.",
+        "My name is Ennio Vögeli and I am 18 years old. Since childhood, I've had a deep fascination with technology and computer science. My father also works in this field, which has shaped my path and inspires me to always give my best.",
         'I currently attend the Informatik Mittelschule at Kantonsschule Hottingen, a specialized program for application development. During this time, I develop not only technical skills but also important soft skills such as teamwork, problem-solving, and persistence.',
         "What motivates me most is the opportunity to solve real-world problems with code. I love working on projects where I can use the latest technologies and express my creativity. At the same time, I'm a strong advocate for clean, maintainable code and best practices in software development.",
       ],
