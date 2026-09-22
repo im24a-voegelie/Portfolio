@@ -1,12 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import Link from "next/link";
 import Card, { CardHeader, CardContent } from "@/components/ui/card";
 import { ScrollFadeIn, StaggerContainer, StaggerChild } from "@/components/animations/ScrollFadeIn";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
-import { SnakeGame } from "@/components/games/SnakeGame";
-import Modal from "@/components/ui/modal";
 import SkillsWithIcons from "@/components/SkillsWithIcons";
 import { FortuneCookie } from "@/components/FortuneCookie";
 import { useTranslation } from "@/components/LanguageProvider";
@@ -15,7 +12,6 @@ import { projects } from "@/data/projects";
 const featuredProject = projects.find((project) => project.id === 4);
 
 export default function Home() {
-  const [showGame, setShowGame] = useState(false);
   const { t, language } = useTranslation();
 
   return (
@@ -115,13 +111,6 @@ export default function Home() {
             </aside>
           </ScrollFadeIn>
         </div>
-
-        {/* Game Modal */}
-        {showGame && (
-          <Modal onClose={() => setShowGame(false)}>
-            <SnakeGame onClose={() => setShowGame(false)} />
-          </Modal>
-        )}
       </main>
     </div>
   );

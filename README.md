@@ -21,9 +21,8 @@ app/
   Projects/page.js       Übersicht aller Projekte
   Projects/[id]/page.js   Detailseite eines einzelnen Projekts
 components/
-  ui/                   Wiederverwendbare UI-Bausteine (Card, Badge, Button, Modal, ...)
+  ui/                   Wiederverwendbare UI-Bausteine (Card, Badge, Button, ...)
   animations/           Scroll-/Stagger-Animationskomponenten
-  games/                Kleine Spielereien (z. B. Snake) auf der Startseite
 data/
   projects.js           Zentrale Datenquelle für alle angezeigten Projekte
 ```

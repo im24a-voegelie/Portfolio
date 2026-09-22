@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import Card, { CardHeader, CardContent } from '@/components/ui/card';
 import { useTranslation } from '@/components/LanguageProvider';
@@ -9,13 +9,13 @@ import { fortunes } from '@/data/fortunes';
 const STORAGE_KEY = 'fortuneCookieLastOpened';
 const FRAME_COUNT = 6;
 const LAST_FRAME = FRAME_COUNT - 1;
-const FRAME_DURATION = 100; // ms, matches the source animation's per-frame timing
+const FRAME_DURATION = 200; // ms, matches the source animation's per-frame timing
 const CANVAS_ASPECT_RATIO = '3262 / 1290';
 // Bounding box (as % of the sprite canvas) of the blank paper slip visible on the final frame.
 const PAPER_BOX = { left: '11.3%', top: '25%', width: '75.2%', height: '40.1%' };
 
 function getDateKey(date) {
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}-${String(date.getDate()).padStart(2, '0')}`;
+  return date.toLocaleDateString('en-CA');
 }
 
 function getTodaysFortune(language) {
@@ -28,26 +28,22 @@ function getTodaysFortune(language) {
 export function FortuneCookie() {
   const { t, language } = useTranslation();
   const [frame, setFrame] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
+  const [status, setStatus] = useState('closed'); // 'closed' | 'opening' | 'open'
   const intervalRef = useRef(null);
 
   useEffect(() => {
     const todayKey = getDateKey(new Date());
     if (window.localStorage.getItem(STORAGE_KEY) === todayKey) {
       // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from localStorage after mount to avoid SSR/client hydration mismatch
-      setIsOpen(true);
+      setStatus('open');
       setFrame(LAST_FRAME);
     }
-  }, []);
-
-  useEffect(() => {
     return () => clearInterval(intervalRef.current);
   }, []);
 
   const handleOpen = () => {
-    if (isOpen || isAnimating) return;
-    setIsAnimating(true);
+    if (status !== 'closed') return;
+    setStatus('opening');
 
     let current = 0;
     intervalRef.current = setInterval(() => {
@@ -55,14 +51,14 @@ export function FortuneCookie() {
       setFrame(current);
       if (current >= LAST_FRAME) {
         clearInterval(intervalRef.current);
-        setIsAnimating(false);
-        setIsOpen(true);
+        setStatus('open');
         window.localStorage.setItem(STORAGE_KEY, getDateKey(new Date()));
       }
     }, FRAME_DURATION);
   };
 
-  const message = getTodaysFortune(language);
+  const isOpen = status === 'open';
+  const message = useMemo(() => getTodaysFortune(language), [language]);
 
   return (
     <Card className="hover:shadow-lg transition-shadow duration-300">
@@ -75,7 +71,7 @@ export function FortuneCookie() {
         <button
           type="button"
           onClick={handleOpen}
-          disabled={isOpen || isAnimating}
+          disabled={status !== 'closed'}
           aria-label={t.home.fortune.openButton}
           className="relative w-full max-w-[320px] disabled:cursor-default"
           style={{ aspectRatio: CANVAS_ASPECT_RATIO }}
