@@ -24,6 +24,12 @@ export const translations = {
       projectsHeading: 'Projekte',
       allProjects: 'Alle Projekte',
       skillsHeading: 'Fähigkeiten & Kompetenzen',
+      fortune: {
+        heading: 'Glückskeks des Tages',
+        prompt: 'Zum Öffnen tippen',
+        openButton: 'Glückskeks öffnen',
+        comeBackTomorrow: 'Komm morgen für einen neuen Spruch wieder vorbei.',
+      },
     },
     about: {
       heroTitle: 'Über mich',
@@ -147,6 +153,12 @@ export const translations = {
       projectsHeading: 'Projects',
       allProjects: 'All Projects',
       skillsHeading: 'Skills & Competencies',
+      fortune: {
+        heading: "Today's Fortune Cookie",
+        prompt: 'Tap to open',
+        openButton: 'Open fortune cookie',
+        comeBackTomorrow: 'Come back tomorrow for a new one.',
+      },
     },
     about: {
       heroTitle: 'About Me',

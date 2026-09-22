@@ -8,6 +8,7 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 import { SnakeGame } from "@/components/games/SnakeGame";
 import Modal from "@/components/ui/modal";
 import SkillsWithIcons from "@/components/SkillsWithIcons";
+import { FortuneCookie } from "@/components/FortuneCookie";
 import { useTranslation } from "@/components/LanguageProvider";
 import { projects } from "@/data/projects";
 
@@ -95,6 +96,10 @@ export default function Home() {
                   </Card>
                 </AnimatedCard>
               </section>
+            </ScrollFadeIn>
+
+            <ScrollFadeIn delay={0.35} className="w-full">
+              <FortuneCookie />
             </ScrollFadeIn>
           </div>
 
